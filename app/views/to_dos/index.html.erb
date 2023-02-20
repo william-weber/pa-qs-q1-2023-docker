@@ -1,0 +1,33 @@
+<h1>ToDos#index</h1>
+
+<% if @show_done %>
+  Showing completed items
+<% else %>
+  NOT showing completed items
+<% end %>
+
+<ol>
+  <% @to_dos.each do |to_do| %>
+    <li>
+      <%= form_for to_do do |form| %>
+        <%= to_do.title %>
+        <%= form.check_box :done %>
+        <%= form.submit %>
+      <% end %>
+    </li>
+  <% end %>
+</ol>
+
+<% if @to_dos.blank? %>
+  No ToDos!
+<% end %>
+
+<%= form_for @new_to_do do |form| %>
+  <%= form.text_field :title %>
+  <%= form.submit %>
+<% end %>
+
+<%= form_tag to_dos_path, method: :get do %>
+  <%= hidden_field_tag 'show_done', true %>
+  <%= submit_tag 'Show Done' %>
+<% end %>
