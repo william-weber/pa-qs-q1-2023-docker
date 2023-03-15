@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Docker!
 
-Things you may want to cover:
+## Build the App
 
-* Ruby version
+`docker-compose build`
 
-* System dependencies
+## Run the App
 
-* Configuration
+`docker-compose up`
 
-* Database creation
+Ctrl-C to quit
 
-* Database initialization
+## Run a command
 
-* How to run the test suite
+`docker-compose run app bash`
+`docker-compose run app bundle exec rails c`
+`docker-compose run app bundle exec rake db:migrate`
+etc.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Developing
 
-* Deployment instructions
-
-* ...
+Make changes in the application code while the app is running. The changes
+will automatically show up. No rebuild needed.
