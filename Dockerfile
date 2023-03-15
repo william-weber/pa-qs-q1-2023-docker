@@ -5,7 +5,9 @@ FROM ruby:3.2.1
 RUN apt-get update
 
 RUN mkdir -p /var/app
-COPY . /var/app
+# Trying out using volume instead for hot-reload
+#COPY . /var/app
+COPY Gemfile* /var/app
 WORKDIR /var/app
 
 RUN bundle install
